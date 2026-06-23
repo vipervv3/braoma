@@ -28,11 +28,13 @@ export const metadata: Metadata = {
     url: "https://braoma.com",
     siteName: "Braoma",
     type: "website",
+    images: ["/braoma-logo.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: ["/braoma-logo.jpg"],
   },
 };
 

@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import ProductCard from "@/components/ProductCard";
+import Image from "next/image";
 import { PRODUCTS } from "@/lib/products";
 
 export default function Home() {
@@ -10,7 +11,17 @@ export default function Home() {
       <Nav />
       <main>
         {/* Hero */}
-        <section className="mx-auto max-w-6xl px-6 pb-20 pt-20 sm:pt-28">
+        <section className="mx-auto max-w-6xl px-6 pb-20 pt-14 sm:pt-20">
+          <div className="mb-12 flex justify-center">
+            <Image
+              src="/braoma-logo.jpg"
+              alt="Braoma — Tech & Automation"
+              width={360}
+              height={360}
+              priority
+              className="h-auto w-[260px] rounded-2xl shadow-[0_10px_44px_-12px_rgba(0,0,0,0.65)] sm:w-[340px]"
+            />
+          </div>
           <div className="max-w-3xl">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-braoma-gold">
               AI built by industry insiders

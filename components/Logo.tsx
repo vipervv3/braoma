@@ -3,11 +3,9 @@
 import { useId } from "react";
 
 /**
- * Braoma logo — a B+A monogram (Braoma + AI) inside a gold ring.
- * The vertical stem is shared: an "A" on the left, the "B" bowls on the right.
- * Flat vector so it scales from billboard to favicon. useId() namespaces the
- * gradient so multiple instances on a page don't collide (colons stripped —
- * they break url(#...) references).
+ * Braoma logo — interlocked B + A monogram (Braoma + Automation), matching the
+ * brand mark used on the hero. Flat gold for crisp nav/favicon use. useId()
+ * namespaces the gradient (colons stripped — they break url(#...) references).
  */
 export default function Logo({
   size = 36,
@@ -37,22 +35,21 @@ export default function Logo({
             <stop offset="1" stopColor="#C39B2E" />
           </linearGradient>
         </defs>
-        <circle cx="32" cy="32" r="27" fill="none" stroke={`url(#${gradId})`} strokeWidth="2.6" />
         <g
+          transform="translate(-3.5,0)"
           fill="none"
           stroke={`url(#${gradId})`}
-          strokeWidth="4"
+          strokeWidth="6"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          {/* shared stem (A's right leg / B's spine) */}
-          <path d="M30 17 V47" />
-          {/* A — left leg + crossbar */}
-          <path d="M18 47 L30 17" />
-          <path d="M23.5 37 H30" />
-          {/* B — two bowls */}
-          <path d="M30 17 H37 C45 17 45 31 37 31 H30" />
-          <path d="M30 31 H39 C48 31 48 47 39 47 H30" />
+          {/* B */}
+          <path d="M34 11 V53" />
+          <path d="M34 11 H43 C55 11 55 32 43 32 H34" />
+          <path d="M34 32 H45 C57 32 57 53 45 53 H34" />
+          {/* A interlocked */}
+          <path d="M14 53 L30 11" />
+          <path d="M20 38 H33" />
         </g>
       </svg>
       {showWordmark && (
