@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
+/* =====================================================================
+ * Braoma design tokens (Tailwind v4 @theme — generates the utilities,
+ * e.g. bg-braoma-navy, text-braoma-gold, border-braoma-border, font-serif).
+ * Premium, calm, trustworthy: deep navy ground, gold accent, cream text.
+ * ===================================================================== */
+@theme {
+  --color-braoma-navy: #0f1a2e;
+  --color-braoma-navy-deep: #0a1422;
+  --color-braoma-gold: #d4af37;
+  --color-braoma-gold-soft: rgba(212, 175, 55, 0.1);
+  --color-braoma-cream: #e8e6e0;
+  --color-braoma-muted: #b5b0a3;
+  --color-braoma-border: rgba(212, 175, 55, 0.2);
+
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-braoma-navy);
+  color: var(--color-braoma-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Quiet, on-brand scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
