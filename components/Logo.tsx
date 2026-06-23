@@ -3,8 +3,8 @@
 import { useId } from "react";
 
 /**
- * Braoma logo — interlocked B + A monogram (Braoma + Automation), matching the
- * brand mark used on the hero. Flat gold for crisp nav/favicon use. useId()
+ * Braoma logo — a B with "AI" inside it (a small A + I in the B's open counters:
+ * B + A + I = Braoma + AI). Flat gold for crisp nav/favicon use. useId()
  * namespaces the gradient (colons stripped — they break url(#...) references).
  */
 export default function Logo({
@@ -35,21 +35,31 @@ export default function Logo({
             <stop offset="1" stopColor="#C39B2E" />
           </linearGradient>
         </defs>
+        {/* B */}
         <g
-          transform="translate(-3.5,0)"
           fill="none"
           stroke={`url(#${gradId})`}
           strokeWidth="6"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          {/* B */}
-          <path d="M34 11 V53" />
-          <path d="M34 11 H43 C55 11 55 32 43 32 H34" />
-          <path d="M34 32 H45 C57 32 57 53 45 53 H34" />
-          {/* A interlocked */}
-          <path d="M14 53 L30 11" />
-          <path d="M20 38 H33" />
+          <path d="M18 9 V55" />
+          <path d="M18 9 H38 C53 9 53 32 38 32 H18" />
+          <path d="M18 32 H40 C55 32 55 55 40 55 H18" />
+        </g>
+        {/* A + I inside */}
+        <g
+          fill="none"
+          stroke={`url(#${gradId})`}
+          strokeWidth="2.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M30 26 L35 15 L40 26" />
+          <path d="M32.2 22 H37.8" />
+          <path d="M36 38 V50" />
+          <path d="M33 38 H39" />
+          <path d="M33 50 H39" />
         </g>
       </svg>
       {showWordmark && (
