@@ -3,16 +3,14 @@
 import { useId } from "react";
 
 /**
- * Braoma logo — a serif "B" with the brand's AI hidden in its counters:
- * the top counter is the triangle of an "A", the bottom is the stem of an "I".
- * Reads as a confident B at a glance; the "AI" rewards a closer look.
- *
- * Drawn with a mask so the counters are true negative space (works on any
- * background). useId() namespaces the mask/gradient so multiple instances on a
- * page don't collide (colons stripped — they break url(#...) references).
+ * Braoma logo — a B+A monogram (Braoma + AI) inside a gold ring.
+ * The vertical stem is shared: an "A" on the left, the "B" bowls on the right.
+ * Flat vector so it scales from billboard to favicon. useId() namespaces the
+ * gradient so multiple instances on a page don't collide (colons stripped —
+ * they break url(#...) references).
  */
 export default function Logo({
-  size = 34,
+  size = 36,
   showWordmark = true,
   className = "",
 }: {
@@ -21,7 +19,6 @@ export default function Logo({
   className?: string;
 }) {
   const uid = useId().replace(/:/g, "");
-  const maskId = `braomaB-${uid}`;
   const gradId = `braomaGold-${uid}`;
 
   return (
@@ -39,19 +36,24 @@ export default function Logo({
             <stop offset="0" stopColor="#EBD27A" />
             <stop offset="1" stopColor="#C39B2E" />
           </linearGradient>
-          <mask id={maskId}>
-            <rect width="64" height="64" fill="black" />
-            {/* B silhouette */}
-            <rect x="15" y="10" width="11" height="44" rx="2.5" fill="white" />
-            <path d="M23 10 H38 C50 10 50 31 38 31 H23 Z" fill="white" />
-            <path d="M23 33 H40 C52 33 52 54 40 54 H23 Z" fill="white" />
-            {/* hidden "A" — triangular top counter */}
-            <polygon points="34,15 42,28 26,28" fill="black" />
-            {/* hidden "I" — slit bottom counter */}
-            <rect x="31" y="37" width="7" height="14" rx="3.5" fill="black" />
-          </mask>
         </defs>
-        <rect width="64" height="64" fill={`url(#${gradId})`} mask={`url(#${maskId})`} />
+        <circle cx="32" cy="32" r="27" fill="none" stroke={`url(#${gradId})`} strokeWidth="2.6" />
+        <g
+          fill="none"
+          stroke={`url(#${gradId})`}
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          {/* shared stem (A's right leg / B's spine) */}
+          <path d="M30 17 V47" />
+          {/* A — left leg + crossbar */}
+          <path d="M18 47 L30 17" />
+          <path d="M23.5 37 H30" />
+          {/* B — two bowls */}
+          <path d="M30 17 H37 C45 17 45 31 37 31 H30" />
+          <path d="M30 31 H39 C48 31 48 47 39 47 H30" />
+        </g>
       </svg>
       {showWordmark && (
         <span
