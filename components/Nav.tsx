@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Logo from "@/components/Logo";
 
 const LINKS = [
   { href: "/products", label: "Products" },
@@ -15,12 +16,8 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-braoma-border bg-braoma-navy/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-serif text-2xl font-semibold tracking-tight text-braoma-gold"
-          onClick={() => setOpen(false)}
-        >
-          Braoma
+        <Link href="/" onClick={() => setOpen(false)} aria-label="Braoma home">
+          <Logo size={34} />
         </Link>
 
         {/* Desktop nav */}

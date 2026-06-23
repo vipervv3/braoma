@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,9 +9,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-3">
         {/* Brand */}
         <div>
-          <span className="font-serif text-2xl font-semibold tracking-tight text-braoma-gold">
-            Braoma
-          </span>
+          <Logo size={32} />
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-braoma-muted">
             Intelligent technology that simplifies life — grounded in real
             industry expertise.
